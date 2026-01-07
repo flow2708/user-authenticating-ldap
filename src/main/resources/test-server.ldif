@@ -1,23 +1,20 @@
-# Определяем корневой элемент
 dn: dc=springframework,dc=org
 objectclass: top
 objectclass: domain
 objectclass: extensibleObject
 dc: springframework
 
-# Организационное подразделение для людей
-dn: ou=people,dc=springframework,dc=org
-objectclass: top
-objectclass: organizationalUnit
-ou: people
-
-# Организационное подразделение для групп
 dn: ou=groups,dc=springframework,dc=org
 objectclass: top
 objectclass: organizationalUnit
 ou: groups
 
-# Пользователь Ben (пароль: benspassword, захеширован BCrypt)
+dn: ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+# Пользователь Ben с plain text паролем
 dn: uid=ben,ou=people,dc=springframework,dc=org
 objectclass: top
 objectclass: person
@@ -26,24 +23,11 @@ objectclass: inetOrgPerson
 cn: Ben Alex
 sn: Alex
 uid: ben
-userPassword: $2a$10$c6bSeWPhg06xB1lvmaWNNe4NROmZiSpYhlocU/98HNr2MhIOiSt36
+userPassword: benspassword
 
-# Пользователь Bob (пароль: bobspassword)
-dn: uid=bob,ou=people,dc=springframework,dc=org
-objectclass: top
-objectclass: person
-objectclass: organizationalPerson
-objectclass: inetOrgPerson
-cn: Bob Hamilton
-sn: Hamilton
-uid: bob
-userPassword: bobspassword
-
-# Группа разработчиков
+# Группа
 dn: cn=developers,ou=groups,dc=springframework,dc=org
 objectclass: top
 objectclass: groupOfUniqueNames
 cn: developers
-ou: developer
 uniqueMember: uid=ben,ou=people,dc=springframework,dc=org
-uniqueMember: uid=bob,ou=people,dc=springframework,dc=org
