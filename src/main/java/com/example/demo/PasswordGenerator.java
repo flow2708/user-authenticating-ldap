@@ -7,6 +7,5 @@ public class PasswordGenerator {
         String rawPassword = "benspassword";
         String encodedPassword = encoder.encode(rawPassword);
         System.out.println(encodedPassword);
-        // $2a$10$c6bSeWPhg06xB1lvmaWNNe4NROmZiSpYhlocU/98HNr2MhIOiSt36
     }
 }
